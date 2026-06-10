@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>eShop.fr - Votre marketplace en ligne</title>
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div id="app">
+    <!-- Navigation -->
+    <nav class="navbar">
+      <div class="container">
+        <div class="navbar-brand">
+          <h1>eShop.fr</h1>
+        </div>
+        <ul class="navbar-menu">
+          <li><a href="#home" onclick="showHome()">Accueil</a></li>
+          <li><a href="#products" onclick="showProducts()">Produits</a></li>
+          <li><a href="#cart" onclick="showCart()">Panier</a></li>
+          <li id="auth-link"><a href="#auth" onclick="showAuth()">Connexion</a></li>
+          <li id="user-menu" style="display:none;">
+            <span id="user-name"></span>
+            <button onclick="logout()" class="btn-logout">Déconnexion</button>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="container">
+      <!-- Home Section -->
+      <section id="home-section" class="section">
+        <div class="hero">
+          <h2>Bienvenue sur eShop.fr</h2>
+          <p>Découvrez nos produits exclusifs et profitez de nos meilleures offres</p>
+          <button onclick="showProducts()" class="btn btn-primary">Commencer les achats</button>
+        </div>
+      </section>
+
+      <!-- Auth Section -->
+      <section id="auth-section" class="section" style="display:none;">
+        <div class="auth-container">
+          <div class="auth-box">
+            <h2>Connexion / Inscription</h2>
+            
+            <!-- Login Form -->
+            <div id="login-form" class="auth-form">
+              <h3>Se connecter</h3>
+              <input type="email" id="login-email" placeholder="Email" required>
+              <input type="password" id="login-password" placeholder="Mot de passe" required>
+              <button onclick="login()" class="btn btn-primary">Connexion</button>
+              <p>Pas encore de compte? <a href="#" onclick="toggleAuthForm()">S'inscrire</a></p>
+              <div id="login-error" class="error"></div>
+            </div>
+
+            <!-- Register Form -->
+            <div id="register-form" class="auth-form" style="display:none;">
+              <h3>Créer un compte</h3>
+              <input type="text" id="register-username" placeholder="Nom d'utilisateur" required>
+              <input type="email" id="register-email" placeholder="Email" required>
+              <input type="password" id="register-password" placeholder="Mot de passe" required>
+              <input type="password" id="register-confirm-password" placeholder="Confirmer le mot de passe" required>
+              <button onclick="register()" class="btn btn-primary">S'inscrire</button>
+              <p>Déjà membre? <a href="#" onclick="toggleAuthForm()">Se connecter</a></p>
+              <div id="register-error" class="error"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Products Section -->
+      <section id="products-section" class="section" style="display:none;">
+        <h2>Nos Produits</h2>
+        <div id="products-grid" class="products-grid"></div>
+      </section>
+
+      <!-- Cart Section -->
+      <section id="cart-section" class="section" style="display:none;">
+        <h2>Mon Panier</h2>
+        <div id="cart-items" class="cart-items"></div>
+        <div class="cart-summary">
+          <h3>Résumé</h3>
+          <p>Total: <span id="cart-total">0.00</span> €</p>
+          <button onclick="checkout()" class="btn btn-primary">Procéder au paiement</button>
+        </div>
+      </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; 2024 eShop.fr. Tous droits réservés.</p>
+      </div>
+    </footer>
+  </div>
+
+  <script src="js/auth.js"></script>
+  <script src="js/products.js"></script>
+  <script src="js/cart.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>
